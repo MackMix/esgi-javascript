@@ -1,5 +1,5 @@
 function ucfirst(str) {
-    if(typeof str !== "string" || str.length === 0) return "";
+    if (typeof str !== "string" || str.length === 0) return "";
     return str[0].toUpperCase() + str.substring(1);
 }
 
@@ -12,9 +12,9 @@ function ucfirst(str) {
 // console.log(ucfirst({}));
 
 function capitalize(str) {
-    if(typeof str !== "string" || str.length === 0) return "";
+    if (typeof str !== "string" || str.length === 0) return "";
     const array = str.toLowerCase().split(" ");
-    for(let i=0; i<array.length;){
+    for (let i = 0; i < array.length;) {
         array[i] = ucfirst(array[i++]);
     }
     return array.join(" ");
@@ -70,11 +70,12 @@ console.log(snake_case({}));
 function leet(str) {
     if (typeof str !== "string" || str.length === 0) return "";
 
-    let voyelle = ['a','e','i','o','u','y'];
-    let replace = ['4','3','1','o','(_)','7'];
-
-    for (let i = 0; i < voyelle.length;i++) {
-        str = str.replace(voyelle[i], replace[i]);
+    let voyelle = ['a', 'e', 'i', 'o', 'u', 'y'];
+    let replace = ['4', '3', '1', '0', '(_)', '7'];
+    for (let j = 0; j < str.length; j++) {
+        for (let i = 0; i < voyelle.length; i++) {
+            str = str.replace(voyelle[i], replace[i]);
+        }
     }
     return str;
 }
