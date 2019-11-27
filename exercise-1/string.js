@@ -18,13 +18,6 @@ function capitalize(str) {
         array[i] = ucfirst(array[i++]);
     }
     return array.join(" ");
-
-    // return str.toLowerCase()
-    //     .split(' ')
-    //     .map(function (item) {
-    //         return ucfirst(item);
-    //     })
-    //     .join(" ");
 }
 
 // console.log(capitalize('test'));
@@ -47,13 +40,13 @@ function camelCase(str) {
     return array.join("");
 }
 
-console.log(camelCase('test_test'));
-console.log(camelCase('$Test T-est'));
-console.log(camelCase('3est 3est'));
-console.log(camelCase('reSt !eZf'));
-console.log(camelCase(''));
-console.log(camelCase(null));
-console.log(camelCase({}));
+// console.log(camelCase('test_test'));
+// console.log(camelCase('$Test T-est'));
+// console.log(camelCase('3est 3est'));
+// console.log(camelCase('reSt !eZf'));
+// console.log(camelCase(''));
+// console.log(camelCase(null));
+// console.log(camelCase({}));
 
 function snake_case(str) {
     if (typeof str !== "string" || str.length === 0) return "";
@@ -70,41 +63,24 @@ function snake_case(str) {
 
 function leet(str) {
     if (typeof str !== "string" || str.length === 0) return "";
-    //
-    // let voyelle = ['a', 'e', 'i', 'o', 'u', 'y'];
-    // let replace = ['4', '3', '1', '0', '(_)', '7'];
-    // for (let j = 0; j < str.length; j++) {
-    //     for (let i = 0; i < voyelle.length; i++) {
-    //         str = str.replace(voyelle[i], replace[i]);
-    //     }
-    // }
-    // return str;
 
-    return str.replace(/[aeiouy]/gi,function (car) {
-        switch (car) {
-            case "a":case "A":
-                return 4;
-            case "e":case "E":
-                return 3;
-            case "i":case "I":
-                return 1;
-            case "o":case "O":
-                return 0;
-            case "u":case "U":
-                return "(_)";
-            case "y":case "Y":
-                return 7;
+    let voyelle = ['a', 'e', 'i', 'o', 'u', 'y'];
+    let replace = ['4', '3', '1', '0', '(_)', '7'];
+    for (let j = 0; j < str.length; j++) {
+        for (let i = 0; i < voyelle.length; i++) {
+            str = str.replace(voyelle[i], replace[i]);
         }
-    })
+    }
+    return str;
 }
 
-console.log(leet('anaconda'));
-console.log(leet('Test Test'));
-console.log(leet('3est 3est'));
-console.log(leet('reSt reZf'));
-console.log(leet(''));
-console.log(leet(null));
-console.log(leet({}));
+// console.log(leet('anaconda'));
+// console.log(leet('Test Test'));
+// console.log(leet('3est 3est'));
+// console.log(leet('reSt reZf'));
+// console.log(leet(''));
+// console.log(leet(null));
+// console.log(leet({}));
 
 function verlan(str) {
     if (typeof str !== "string" || str.length === 0) return "";
@@ -136,19 +112,24 @@ function yoda(str) {
 // console.log(yoda(null));
 // console.log(yoda({}));
 
-function vig(str, key) {
-    if (typeof str !== "string" || typeof key !== "string" || str.length === 0 || key.length === 0) return "";
-    const array = str.toLowerCase().split(" ");
-    for (let i = 0; i < array.length;i++) {
-        array[i] = array[i].charCodeAt(65+((array[i]-65)+((key[i]%key.length)-65))%26);
+function vig(str,code) {
+    if (typeof str !== "string" || str.length === 0 || typeof code !== "string" || code.length === 0  ) return "";
+    while(code.length < str.length){
+        code+=code;
     }
-    return array;
+    return str.split("").map(function (car, index) {
+        car = car.toLowerCase();
+        const carCode = car.charCodeAt(0) -"a".charCodeAt(0);
+        if(carCode<0 || carCode > 25) return car;
+        const codeCode = code[index].charCodeAt(0) -"a".charCodeAt(0);
+        const encodedCode =  (carCode + codeCode)%26
+        return String.fromCharCode(encodedCode+'a'.charCodeAt(0));
+    }).join('');
 }
 
-// console.log(vig('anticonstitutionnellement','foo'));
-// console.log(vig('antiConstiTutioNnellement ','foo'));
-// console.log(vig('une phrase tres tres longue mais qui ne veut absolument rien dire car c est juste un test','nawakdecheznawak'));
-// console.log(vig(' ','test'));
-// console.log(vig(null,'test'));
-// console.log(vig({},'test'));
-
+console.log(vig('anticonstitutionnellement','foo'));
+console.log(vig('antiConstiTutioNnellement ','foo'));
+console.log(vig('une phrase tres tres longue mais qui ne veut absolument rien dire car c est juste un test','nawakdecheznawak'));
+console.log(vig(' ','test'));
+console.log(vig(null,'test'));
+console.log(vig({},'test'));
