@@ -133,3 +133,8 @@ console.log(vig('une phrase tres tres longue mais qui ne veut absolument rien di
 console.log(vig(' ','test'));
 console.log(vig(null,'test'));
 console.log(vig({},'test'));
+
+function prop_access(object, path) {
+    if (typeof path !== "string" || path.length === 0) return object
+    return path
+}
