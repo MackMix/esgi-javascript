@@ -37,6 +37,9 @@ function capitalize(str) {
 
 function camelCase(str) {
     if (typeof str !== "string" || str.length === 0) return "";
+    for (let j = 0; j < str.length; j++) {
+        str = str.replace(/[^A-Za-z]/, "");
+    }
     const array = str.toLowerCase().split(" ");
     for (let i = 0; i < array.length;) {
         array[i] = ucfirst(array[i++]);
@@ -44,10 +47,10 @@ function camelCase(str) {
     return array.join("");
 }
 
-// console.log(camelCase('test test'));
-// console.log(camelCase('Test Test'));
+// console.log(camelCase('test_test'));
+// console.log(camelCase('$Test T-est'));
 // console.log(camelCase('3est 3est'));
-// console.log(camelCase('reSt reZf'));
+// console.log(camelCase('reSt !eZf'));
 // console.log(camelCase(''));
 // console.log(camelCase(null));
 // console.log(camelCase({}));
@@ -117,6 +120,21 @@ function yoda(str) {
 // console.log(yoda(null));
 // console.log(yoda({}));
 
-function vig(str, key) {
-    if (typeof str !== "string" || typeof key !== "string" || str.length === 0 || key.length === 0 || str.length != key.length) return "";
+function vig(str) {
+    if (typeof str !== "string" || str.length === 0 ) return "";
+    var array = str.split("-");
+    for (let i = 0; i < str.length;i++) {
+        array[i].trim()
+    }
+
+    return str;
 }
+
+console.log(vig('anticonstitutionnellement - foo'));
+console.log(vig('antiConstiTutioNnellement - foo'));
+console.log(vig('une phrase tres tres longue mais qui ne veut absolument rien dire car c est juste un test - nawakdecheznawak'));
+console.log(vig('reSt reZf'));
+console.log(vig(' - test'));
+console.log(vig(null));
+console.log(vig({}));
+
