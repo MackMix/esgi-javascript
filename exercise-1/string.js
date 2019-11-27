@@ -136,5 +136,11 @@ console.log(vig({},'test'));
 
 function prop_access(object, path) {
     if (typeof path !== "string" || path.length === 0) return object
+
     return path
 }
+
+console.log(prop_access('dog','animal.type.name'));
+console.log(prop_access('{"name":"dog"}',"animal.type"));
+console.log(prop_access('{"name":"cat"}',"animals.1.type"));
+console.log(prop_access(null,'test'));
