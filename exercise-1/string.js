@@ -69,7 +69,6 @@ function snake_case(str) {
 
 function leet(str) {
     if (typeof str !== "string" || str.length === 0) return "";
-
     let voyelle = ['a', 'e', 'i', 'o', 'u', 'y'];
     let replace = ['4', '3', '1', '0', '(_)', '7'];
     for (let j = 0; j < str.length; j++) {
@@ -104,3 +103,20 @@ function verlan(str) {
 // console.log(verlan(''));
 // console.log(verlan(null));
 // console.log(verlan({}));
+
+function yoda(str) {
+    if (typeof str !== "string" || str.length === 0) return "";
+    return str.split(" ").reverse().join(" ");
+}
+
+// console.log(yoda('anaconda'));
+// console.log(yoda('Test Test'));
+// console.log(yoda('3est 3est'));
+// console.log(yoda('reSt reZf'));
+// console.log(yoda(''));
+// console.log(yoda(null));
+// console.log(yoda({}));
+
+function vig(str, key) {
+    if (typeof str !== "string" || typeof key !== "string" || str.length === 0 || key.length === 0 || str.length != key.length) return "";
+}
