@@ -59,13 +59,13 @@ function snake_case(str) {
     return array.join("_");
 }
 
-console.log(snake_case('test test'));
-console.log(snake_case('Test Test'));
-console.log(snake_case('3est 3est'));
-console.log(snake_case('reSt reZf'));
-console.log(snake_case(''));
-console.log(snake_case(null));
-console.log(snake_case({}));
+// console.log(snake_case('test test'));
+// console.log(snake_case('Test Test'));
+// console.log(snake_case('3est 3est'));
+// console.log(snake_case('reSt reZf'));
+// console.log(snake_case(''));
+// console.log(snake_case(null));
+// console.log(snake_case({}));
 
 function leet(str) {
     if (typeof str !== "string" || str.length === 0) return "";
@@ -80,10 +80,27 @@ function leet(str) {
     return str;
 }
 
-console.log(leet('anaconda'));
-console.log(leet('Test Test'));
-console.log(leet('3est 3est'));
-console.log(leet('reSt reZf'));
-console.log(leet(''));
-console.log(leet(null));
-console.log(leet({}));
+// console.log(leet('anaconda'));
+// console.log(leet('Test Test'));
+// console.log(leet('3est 3est'));
+// console.log(leet('reSt reZf'));
+// console.log(leet(''));
+// console.log(leet(null));
+// console.log(leet({}));
+
+function verlan(str) {
+    if (typeof str !== "string" || str.length === 0) return "";
+    var array = str.split(" ");
+    for (let i = 0; i < array.length;i++) {
+        array[i] = array[i].split("").reverse().join("");
+    }
+    return array.join(" ");
+}
+
+// console.log(verlan('anaconda'));
+// console.log(verlan('Test Test'));
+// console.log(verlan('3est 3est'));
+// console.log(verlan('reSt reZf'));
+// console.log(verlan(''));
+// console.log(verlan(null));
+// console.log(verlan({}));
