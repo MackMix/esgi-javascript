@@ -120,18 +120,16 @@ function yoda(str) {
 // console.log(yoda(null));
 // console.log(yoda({}));
 
-function vig(str) {
-    if (typeof str !== "string" || str.length === 0 ) return "";
-    var array = str.split("-");
+function vig(str, key) {
+    if (typeof str !== "string" || typeof key !== "string" || str.length === 0 || key.length === 0 || str.length != key.length) return "";
     for (let i = 0; i < str.length;i++) {
-        array[i].trim()
+        str[i] = charCodeAt(65+((str[i]-65)+((key[i]%key.length)-65))%26);
     }
-
     return str;
 }
 
 console.log(vig('anticonstitutionnellement - foo'));
-console.log(vig('antiConstiTutioNnellement - foo'));
+console.log(vig('antiConstiTutioNnellement '));
 console.log(vig('une phrase tres tres longue mais qui ne veut absolument rien dire car c est juste un test - nawakdecheznawak'));
 console.log(vig('reSt reZf'));
 console.log(vig(' - test'));
