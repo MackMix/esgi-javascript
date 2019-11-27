@@ -38,7 +38,7 @@ function capitalize(str) {
 function camelCase(str) {
     if (typeof str !== "string" || str.length === 0) return "";
     for (let j = 0; j < str.length; j++) {
-        str = str.replace(/[^A-Za-z]/, "");
+        str = str.replace(/[^A-Za-z\\ ]/, " ");
     }
     const array = str.toLowerCase().split(" ");
     for (let i = 0; i < array.length;) {
@@ -123,7 +123,7 @@ function yoda(str) {
 function vig(str, key) {
     if (typeof str !== "string" || typeof key !== "string" || str.length === 0 || key.length === 0 || str.length != key.length) return "";
     for (let i = 0; i < str.length;i++) {
-        str[i] = charCodeAt(65+((str[i]-65)+((key[i]%key.length)-65))%26);
+        str[i] = str[i].charCodeAt(65+((str[i]-65)+((key[i]%key.length)-65))%26);
     }
     return str;
 }
