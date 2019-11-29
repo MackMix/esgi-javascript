@@ -1,8 +1,6 @@
 function type_check_v1(value, type){
-    if(typeof value == "object") {
-        if (type == "array") return Array.isArray(value);
-        else if (type == "null") return value === null;
-    }
+    if(typeof value == "object" && type == "array") return Array.isArray(value);
+    if(typeof value == "object" && type == "null") return value === null;
     return typeof value === type;
 }
 // console.log(type_check_v1(1,"number"));
