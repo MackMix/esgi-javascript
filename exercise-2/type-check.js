@@ -1,6 +1,16 @@
 function type_check_v1(value, type){
-    // if (typeof type !== "string" || type.length === 0) return "";
-    if(typeof value == type)return true;
-    return false;
+    if(typeof value == "object") {
+        if (type == "array") return Array.isArray(value);
+        else if (type == "null") return value === null;
+    }
+    return typeof value === type;
 }
-console.log(type_check_v1(1,"number"))
+// console.log(type_check_v1(1,"number"));
+// console.log(type_check_v1(null,"null"));
+// console.log(type_check_v1( true,"null"));
+// console.log(type_check_v1( null,"object"));
+// console.log(type_check_v1([1,2],"array"));
+// console.log(type_check_v1( true,"array"));
+// console.log(type_check_v1(undefined,"undefined"));
+// console.log(type_check_v1(true,"undefined"));
+// console.log(type_check_v1(function yo() {return yo;},"function"));

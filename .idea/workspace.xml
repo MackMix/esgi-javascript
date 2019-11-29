@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c9a5821b-8338-48ef-af89-601071e3f068" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/exercise-2/type_check.js" beforeDir="false" afterPath="$PROJECT_DIR$/exercise-2/type-check.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exercise-2/type-check.js" beforeDir="false" afterPath="$PROJECT_DIR$/exercise-2/type-check.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -28,7 +29,7 @@
   <component name="ProjectId" id="1U9GB89Qn23wvmFZeuv2p6YmMfK" />
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$USER_HOME$/my_project_name" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
   </component>
@@ -56,7 +57,9 @@
       <updated>1574761258055</updated>
       <workItem from="1574761259570" duration="8845000" />
       <workItem from="1574844815041" duration="10300000" />
-      <workItem from="1574855144255" duration="920000" />
+      <workItem from="1574855144255" duration="1083000" />
+      <workItem from="1574872688831" duration="47000" />
+      <workItem from="1575032537378" duration="2589000" />
     </task>
     <servers />
   </component>
