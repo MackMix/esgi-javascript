@@ -14,7 +14,7 @@ String.prototype.capitalize = function() {
 
 String.prototype.camelCase = function() {
     if (this.length === 0) return "";
-    var str = this;
+    let str = this;
     for (let j = 0; j < str.length; j++) {
         str = str.replace(/[^A-Za-z0-9\\ ]/gi, " ");
     }

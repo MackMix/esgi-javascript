@@ -84,8 +84,8 @@ function leet(str) {
 
 function verlan(str) {
     if (typeof str !== "string" || str.length === 0) return "";
-    var array = str.split(" ");
-    for (let i = 0; i < array.length;i++) {
+    let array = str.split(" ");
+    for (let i = 0; i < array.length; i++) {
         array[i] = array[i].split("").reverse().join("");
     }
     return array.join(" ");
@@ -112,35 +112,46 @@ function yoda(str) {
 // console.log(yoda(null));
 // console.log(yoda({}));
 
-function vig(str,code) {
-    if (typeof str !== "string" || str.length === 0 || typeof code !== "string" || code.length === 0  ) return "";
-    while(code.length < str.length){
-        code+=code;
+function vig(str, code) {
+    if (typeof str !== "string" || str.length === 0 || typeof code !== "string" || code.length === 0) return "";
+    while (code.length < str.length) {
+        code += code;
     }
     return str.split("").map(function (car, index) {
         car = car.toLowerCase();
-        const carCode = car.charCodeAt(0) -"a".charCodeAt(0);
-        if(carCode<0 || carCode > 25) return car;
-        const codeCode = code[index].charCodeAt(0) -"a".charCodeAt(0);
-        const encodedCode =  (carCode + codeCode)%26
-        return String.fromCharCode(encodedCode+'a'.charCodeAt(0));
+        const carCode = car.charCodeAt(0) - "a".charCodeAt(0);
+        if (carCode < 0 || carCode > 25) return car;
+        const codeCode = code[index].charCodeAt(0) - "a".charCodeAt(0);
+        const encodedCode = (carCode + codeCode) % 26
+        return String.fromCharCode(encodedCode + 'a'.charCodeAt(0));
     }).join('');
 }
 
-console.log(vig('anticonstitutionnellement','foo'));
-console.log(vig('antiConstiTutioNnellement ','foo'));
-console.log(vig('une phrase tres tres longue mais qui ne veut absolument rien dire car c est juste un test','nawakdecheznawak'));
-console.log(vig(' ','test'));
-console.log(vig(null,'test'));
-console.log(vig({},'test'));
+//console.log(vig('anticonstitutionnellement', 'foo'));
+//console.log(vig('antiConstiTutioNnellement ', 'foo'));
+//console.log(vig('une phrase tres tres longue mais qui ne veut absolument rien dire car c est juste un test', 'nawakdecheznawak'));
+//console.log(vig(' ', 'test'));
+//console.log(vig(null, 'test'));
+//console.log(vig({}, 'test'));
 
-function prop_access(object, path) {
-    if (typeof path !== "string" || path.length === 0) return object
-
-    return path
+function prop_access(obj, str) {
+    if (str === "" || str === null || typeof obj !== "object") {
+        return obj;
+    }
+    let access = str.trim().split('.');
+    let object = obj;
+    for (let i = 0; access.length; i++) {
+        if (i == access.length) {
+            return object;
+        }
+        if (!Object.prototype.hasOwnProperty.call(object, access[i])) {
+            console.log(str + " not exist");
+            return false;
+        }
+        object = object[access[i]];
+    }
 }
 
-console.log(prop_access('dog','animal.type.name'));
-console.log(prop_access('{"name":"dog"}',"animal.type"));
-console.log(prop_access('{"name":"cat"}',"animals.1.type"));
-console.log(prop_access(null,'test'));
+console.log(prop_access('dog', 'animal.type.name'));
+console.log(prop_access('{"name":"dog"}', "animal.type"));
+console.log(prop_access('{"name":"cat"}', "animals.1.type"));
