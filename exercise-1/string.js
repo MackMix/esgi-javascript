@@ -150,8 +150,10 @@ function prop_access(obj, str) {
         }
         object = object[access[i]];
     }
+    return object;
 }
 
 console.log(prop_access('dog', 'animal.type.name'));
-console.log(prop_access('{"name":"dog"}', "animal.type"));
-console.log(prop_access('{"name":"cat"}', "animals.1.type"));
+console.log(prop_access({animal:{type:{name:"dog"}}}, "animal.type.name"));
+console.log(prop_access({animal:{type:{name:"dog"}}}, "animal.type"));
+console.log(prop_access({animal:{type:{name:"cat"}}}, "animals.1.type"));

@@ -25,7 +25,27 @@ String.prototype.camelCase = function() {
     return array.join("");
 };
 
+Object.prototype.prop_access = function (str) {
+    if (str === "" || str === null) {
+        return obj;
+    }
+    let access = str.trim().split('.');
+    let object = this;
+    for (let i = 0; access.length; i++) {
+        if (i == access.length) {
+            return object;
+        }
+        if (!Object.prototype.hasOwnProperty.call(object, access[i])) {
+            console.log(str + " not exist");
+            return false;
+        }
+        object = object[access[i]];
+    }
+    return object;
+}
+
 
 console.log('maxime'.ucfirst());
 console.log('maxime huet'.capitalize());
 console.log('m4x1-me_ huet'.camelCase());
+console.log({animal:{type:{name:"chien"}}}.prop_access("animal.type.name"));
